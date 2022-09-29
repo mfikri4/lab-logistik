@@ -5,12 +5,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4 text-gray-800">Form Tambah Data Reagen</h1>
+    <h1 class="h3 mb-4 text-gray-800">Form Tambah Data Reagen Riset</h1>
     
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Form Reagen</h6>
+            <h6 class="m-0 font-weight-bold text-gray-800">Form Reagen Riset</h6>
         
           </div>
         <div class="card-body">
@@ -58,6 +58,8 @@
                             <input type="text" class="form-control"
                                 name="volume_stok" placeholder="Volume Stok">
                         </div>
+                        <input type="hidden" name="name_user" id="name_user" value="{{Auth::user()->name_user}}"></th>
+
                         <button type="submit" class="btn btn-success btn-user btn-block" value="Tambah Data">
                         Tambah Data
                         </button>

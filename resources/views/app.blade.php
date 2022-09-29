@@ -31,7 +31,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-custom sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gray-600 sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center" href="">
@@ -54,7 +54,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('reagen') }}">
                         <i class="fas fa-fw fa-thermometer-three-quarters"></i>
-                        <span>Reagen</span></a>
+                        <span>Reagen Riset</span></a>
+                </li>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('reagen-kultur') }}">
+                        <i class="fas fa-fw fa-thermometer-three-quarters"></i>
+                        <span>Reagen Kultur</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('edit-manager/' . Auth::user()->id) }}">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Edit Data Pengguna</span></a>
                 </li>
             @elseif(auth()->user()->level == 2)
             <!-- Nav Item - Dashboard -->
@@ -68,7 +83,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('reagena') }}">
                         <i class="fas fa-fw fa-thermometer-three-quarters"></i>
-                        <span>Reagen</span></a>
+                        <span>Reagen Riset</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('reagena-kultur') }}">
+                        <i class="fas fa-fw fa-thermometer-three-quarters"></i>
+                        <span>Reagen Kultur</span></a>
                 </li>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -89,9 +111,73 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('reagenu') }}">
                         <i class="fas fa-fw fa-thermometer-three-quarters"></i>
-                        <span>Reagen</span></a>
+                        <span>Reagen Riset</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('reagenu-kultur') }}">
+                        <i class="fas fa-fw fa-thermometer-three-quarters"></i>
+                        <span>Reagen Kultur</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('edit-user/' . Auth::user()->id) }}">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Edit Data Pengguna</span></a>
+                </li>
+            @elseif(auth()->user()->level == 4)
+            <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('user-riset') }}">
+                        <i class="fas fa-fw fa-home"></i>
+                        <span>Dashboard</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('reagenr-riset') }}">
+                        <i class="fas fa-fw fa-thermometer-three-quarters"></i>
+                        <span>Reagen Riset</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('edit-riset/'. Auth::user()->id) }}">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Edit Data Pengguna</span></a>
+                </li>
+            @elseif(auth()->user()->level == 5)
+            <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('user-kultur') }}">
+                        <i class="fas fa-fw fa-home"></i>
+                        <span>Dashboard</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('reagenk-kultur') }}">
+                        <i class="fas fa-fw fa-thermometer-three-quarters"></i>
+                        <span>Reagen Kultur</span></a>
+                </li>
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('edit-kultur/'. Auth::user()->id) }}">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Edit Data Pengguna</span></a>
                 </li>
             @endif
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('history') }}">
+                    <i class="fas fa-fw fa-history"></i>
+                    <span>History</span>
+                </a>
+            </li>
             <!-- <li class="nav-item">
                 <a class="nav-link" href="{{ url('catalog') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>

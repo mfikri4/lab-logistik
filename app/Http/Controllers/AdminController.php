@@ -128,20 +128,92 @@ class AdminController extends Controller
     {
         $d = User::find($id);
         if ($d == null){
-            return redirect('user/'. $id)->with('status', 'Data tidak Ditemukan !');
+            return redirect('user-data/')->with('status', 'Data tidak Ditemukan !');
         }
 
         $req = $request->all();
+        $req['password']    = Hash::make($request->password);
 
         $data = User::find($id)->update($req);
         if($data){
-            return redirect('user/'. $id)->with('status', 'Data pengguna Berhasil diedit !');
+            return redirect('user-data/')->with('status', 'Data pengguna Berhasil diedit !');
         }
 
-        return redirect('user/'. $id)->with('status', 'Gagal edit data pengguna!');
+        return redirect('user-data/')->with('status', 'Gagal edit data pengguna!');
         
     }
 
+    public function update_manager(Request $request, $id)
+    {
+        $d = User::find($id);
+        if ($d == null){
+            return redirect('edit-manager/'. $id)->with('status', 'Data tidak Ditemukan !');
+        }
+
+        $req = $request->all();
+        $req['password']    = Hash::make($request->password);
+        $data = User::find($id)->update($req);
+        if($data){
+            return redirect('edit-manager/'. $id)->with('status', 'Data pengguna Berhasil diedit !');
+        }
+
+        return redirect('edit-manager/'. $id)->with('status', 'Gagal edit data pengguna!');
+        
+    }
+
+    public function update_user(Request $request, $id)
+    {
+        $d = User::find($id);
+        if ($d == null){
+            return redirect('edit-user/'. $id)->with('status', 'Data tidak Ditemukan !');
+        }
+
+        $req = $request->all();
+        $req['password']    = Hash::make($request->password);
+        $data = User::find($id)->update($req);
+        if($data){
+            return redirect('edit-user/'. $id)->with('status', 'Data pengguna Berhasil diedit !');
+        }
+
+        return redirect('edit-user/'. $id)->with('status', 'Gagal edit data pengguna!');
+        
+    }
+
+    public function update_riset(Request $request, $id)
+    {
+        $d = User::find($id);
+        if ($d == null){
+            return redirect('edit-riset/'. $id)->with('status', 'Data tidak Ditemukan !');
+        }
+
+        $req = $request->all();
+        $req['password']    = Hash::make($request->password);
+        $data = User::find($id)->update($req);
+        if($data){
+            return redirect('edit-riset/'. $id)->with('status', 'Data pengguna Berhasil diedit !');
+        }
+
+        return redirect('edit-riset/'. $id)->with('status', 'Gagal edit data pengguna!');
+        
+    }
+
+    public function update_kultur(Request $request, $id)
+    {
+        $d = User::find($id);
+        if ($d == null){
+            return redirect('edit-kultur/'. $id)->with('status', 'Data tidak Ditemukan !');
+        }
+
+        $req = $request->all();
+        $req['password']    = Hash::make($request->password);
+        $data = User::find($id)->update($req);
+        if($data){
+            return redirect('edit-kultur/'. $id)->with('status', 'Data pengguna Berhasil diedit !');
+        }
+
+        return redirect('edit-kultur/'. $id)->with('status', 'Gagal edit data pengguna!');
+        
+    }
     public function delete($id)
     {
         $data = User::find($id);

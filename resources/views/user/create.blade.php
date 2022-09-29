@@ -11,7 +11,7 @@
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Form Data Pengguna</h6>
+      <h6 class="m-0 font-weight-bold text-gray-800">Form Data Pengguna</h6>
     </div>
 
     <div class="card-body">
@@ -42,9 +42,11 @@
                 <label for="">Level Akses</label>
                 <select name="level" class="select form-control form-control-md">     
                   <option >Pilih level akses</option>
-                  <option value="1">Kepala Desa</option>
-                  <option value="2">Admin</option>
-                  <option value="3">User</option>
+                  <option value="1">Manager</option>
+                  <option value="2">PJ Logistic</option>
+                  <option value="3">User All Reagen</option>
+                  <option value="4">User Reagen Riset</option>
+                  <option value="5">User Reagen Kultur</option>
                 <select>
             </div>
             <button type="submit" class="btn btn-success btn-user btn-block" value="Tambah Data">

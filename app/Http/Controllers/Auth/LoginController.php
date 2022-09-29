@@ -38,7 +38,11 @@ class LoginController extends Controller
             case 2:
                 return '/admin';            
             case 3:
-                return '/user';
+                return '/user';            
+            case 4:
+                return '/user-riset';         
+            case 5:
+                return '/user-kultur';
             default:
                 return '/login';
         }

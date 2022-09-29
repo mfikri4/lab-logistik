@@ -65,17 +65,17 @@ class UserController extends Controller
     {
         $d = User::find($id);
         if ($d == null){
-            return redirect('admin/user/'. $id)->with('status', 'Data tidak Ditemukan !');
+            return redirect('user-data/'. $id)->with('status', 'Data tidak Ditemukan !');
         }
 
         $req = $request->all();
 
         $data = User::find($id)->update($req);
         if($data){
-            return redirect('user/'. $id)->with('status', 'Data pengguna Berhasil diedit !');
+            return redirect('user-data/'. $id)->with('status', 'Data pengguna Berhasil diedit !');
         }
 
-        return redirect('user/'. $id)->with('status', 'Gagal edit data pengguna!');
+        return redirect('user-data/'. $id)->with('status', 'Gagal edit data pengguna!');
         
     }
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reagen;
+use App\Models\History;
+use Illuminate\Support\Facades\Auth;
 use App\Exports\ReagenExport;
 use App\Imports\ImportReagen;
 use Maatwebsite\Excel\Facades\Excel;
@@ -31,9 +33,11 @@ class ReagenController extends Controller
 	}
 
     
-    public function dashboard()
+    public function dashboard(Request $request)
     {
-        return view('dashboard');
+        $pagination = 30;
+        $data = History::orderBy('created_at','desc')->limit(10)->get();
+        return view('dashboard', compact('data'))->with('i', ($request->input('page', 1) - 1) * $pagination);
     }
 
     public function create()
@@ -43,6 +47,19 @@ class ReagenController extends Controller
 
     public function insert(Request $request)
     {
+
+        History::create([
+            'kategori'          => 'Reagen Riset',
+            'metode_analisis'   => $request['metode_analisis'],
+            'nama_reagen'       => $request['nama_reagen'],
+            'brand'             => $request['brand'],
+            'no_catalog'        => $request['no_catalog'],
+            'volume_stock'      => $request['volume_stok'],
+            'user'              => $request['name_user'],
+            'aksi'              => 'Add Reagen'
+        ]);
+
+
         $request->validate(Reagen::$rules);
         $requests = $request->all();
     
@@ -63,6 +80,17 @@ class ReagenController extends Controller
 
     public function update_logistic(Request $request,$id)
     {
+        History::create([
+            'kategori'          => 'Reagen Riset',
+            'metode_analisis'   => $request['metode_analisis'],
+            'nama_reagen'       => $request['nama_reagen'],
+            'brand'             => $request['brand'],
+            'no_catalog'        => $request['no_catalog'],
+            'volume_stock'      => $request['volume_stok'],
+            'user'              => $request['name_user'],
+            'aksi'              => 'Edit All Reagen'
+        ]);
+
         $d = Reagen::find($id);
         if ($d == null){
             return redirect('reagena')->with('status', 'Data tidak Ditemukan !');
@@ -82,6 +110,17 @@ class ReagenController extends Controller
 
     public function update_user(Request $request,$id)
     {
+        History::create([
+            'kategori'          => 'Reagen Riset',
+            'metode_analisis'   => $request['metode_analisis'],
+            'nama_reagen'       => $request['nama_reagen'],
+            'brand'             => $request['brand'],
+            'no_catalog'        => $request['no_catalog'],
+            'volume_stock'      => $request['volume_stok'],
+            'user'              => $request['name_user'],
+            'aksi'              => 'Edit Stok Reagen'
+        ]);
+
         $d = Reagen::find($id);
         if ($d == null){
             return redirect('reagenu')->with('status', 'Data tidak Ditemukan !');
@@ -105,6 +144,17 @@ class ReagenController extends Controller
     if ($data == null) {
         return redirect('reagena')->with('status', 'Data tidak ditemukan !');
     }
+
+    History::create([
+        'kategori'          => 'Reagen Riset',
+        'metode_analisis'   => $data['metode_analisis'],
+        'nama_reagen'       => $data['nama_reagen'],
+        'brand'             => $data['brand'],
+        'no_catalog'        => $data['no_catalog'],
+        'volume_stock'      => $data['volume_stok'],
+        'user'              => Auth::user()->name_user,
+        'aksi'              => 'Hapus Reagen'
+    ]);
     
     $delete = $data->delete();
     if ($delete) {

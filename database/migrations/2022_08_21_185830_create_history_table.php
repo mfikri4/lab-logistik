@@ -14,7 +14,14 @@ class CreateHistoryTable extends Migration
     public function up()
     {
         Schema::create('history', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id_history');
+            $table->string('kategori');
+            $table->string('metode_analisis');
+            $table->string('nama_reagen');
+            $table->string('brand');
+            $table->string('volume_stock');
+            $table->string('user');
+            $table->string('aksi');
             $table->timestamps();
         });
     }

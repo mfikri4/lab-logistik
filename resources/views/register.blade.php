@@ -132,9 +132,11 @@
                                 <div class="mt-4 text-sm font-bold text-gray-700 tracking-wide">Level Akses </div>
                                 <select class="w-full pl-4 text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-blue-500" name="level" id="level">
                                     <option >Pilih level akses</option>
-                                    <option value="1">Kepala Desa</option>
+                                    <option value="1">Manager</option>
                                     <option value="2">PJ Logistic</option>
-                                    <option value="3">User</option>
+                                    <option value="3">User All Reagen</option>
+                                    <option value="4">User Reagen Riset</option>
+                                    <option value="5">User Reagen Kultur</option>
                                 </select>
 
                             </div>

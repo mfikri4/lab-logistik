@@ -11,7 +11,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-2">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Pengguna</h6>
+                            <h6 class="m-0 font-weight-bold text-gray-800">Pengguna</h6>
                         </div>
 
                         <div class="card-body">
@@ -41,15 +41,19 @@
                                           <td>{{$cat->name_user}}</td>
                                           <td>{{$cat->email}}</td>
                                           <td> @if ($cat->level == 1)
-                                                    Kepala Desa
+                                                    Manager
                                                 @elseif($cat->level == 2)
-                                                    Admin
+                                                    PJ Logistik
                                                 @elseif($cat->level == 3)
-                                                    User
+                                                    User All Reagen
+                                                @elseif($cat->level == 4)
+                                                    User Reagen Riset
+                                                @elseif($cat->level == 5)
+                                                    User Reagen Kultur
                                                 @endif
                                           </td>
                                           <td>
-                                            <a href="{{ url('user-data/edit/'.$cat->id) }}" class="btn btn-success mb-2">  
+                                            <a href="{{ url('user-data/edit/'.$cat->id) }}" class="btn btn-primary mb-2">  
                                                 <i class="fa fa-edit"></i>
                                                 Edit 
                                             </a>

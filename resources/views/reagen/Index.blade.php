@@ -6,12 +6,12 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Data Reagen</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Data Reagen Riset</h1>
                    
                     <!-- DataTales Example -->
                     <div class="card shadow mb-2">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Reagen</h6>
+                            <h6 class="m-0 font-weight-bold text-gray-800">Reagen Riset</h6>
                         </div>
 
                         @if(auth()->user()->level == 2)
